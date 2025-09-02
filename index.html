@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Движок создания мод-меню (создано в образовательных целях и использовать только в своих играх!)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Движок создания мод-меню (создано в образовате
+            льных целях и использовать только в своих играх!)</h1>
+            <p class="subtitle">Создайте свое собственное мод-меню для игр</p>
+        </header>
+        
+        <div class="panels">
+            <div class="panel">
+                <h2 class="panel-title">Добавить параметр</h2>
+                <div class="form-group">
+                    <label for="paramName">Название параметра</label>
+                    <input type="text" id="paramName" placeholder="Например: Бесконечные жизни">
+                </div>
+                <div class="form-group">
+                    <label for="paramType">Тип параметра</label>
+                    <select id="paramType">
+                        <option value="toggle">Переключатель (вкл/выкл)</option>
+                        <option value="slider">Слайдер (число)</option>
+                        <option value="button">Кнопка</option>
+                        <option value="selector">Выбор варианта</option>
+                    </select>
+                </div>
+                <div class="form-group" id="optionsGroup" style="display: none;">
+                    <label for="paramOptions">Варианты выбора (через запятую)</label>
+                    <input type="text" id="paramOptions" placeholder="Вариант 1, Вариант 2, Вариант 3">
+                </div>
+                <div class="form-group">
+                    <label for="paramCode">Код, который выполняется при включении</label>
+                    <textarea id="paramCode" rows="5" placeholder="Например: player.health = 9999;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="paramDisableCode">Код, который выполняется при выключении (опционально)</label>
+                    <textarea id="paramDisableCode" rows="3" placeholder="Например: player.health = 100;"></textarea>
+                </div>
+                <button class="btn-primary" id="addParamBtn">Добавить параметр</button>
+            </div>
+            
+            <div class="panel">
+                <h2 class="panel-title">Добавленные параметры</h2>
+                <div id="parametersList">
+                    <p>Параметры не добавлены</p>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h2 class="panel-title">Предпросмотр меню</h2>
+                <div class="preview" id="menuPreview">
+                    <p>Меню будет отображаться здесь</p>
+                </div>
+                
+                <h2 class="panel-title" style="margin-top: 20px;">Импорт игры</h2>
+                <div class="form-group">
+                    <label for="gameFile">Загрузить HTML файл игры</label>
+                    <input type="file" id="gameFile" accept=".html,.htm">
+                </div>
+                
+                <h2 class="panel-title">Экспорт</h2>
+                <div class="actions">
+                    <button class="btn-success" id="exportBtn">Экспортировать мод-меню</button>
+                    <button class="btn-primary" id="downloadBtn">Скачать игру с мод-меню</button>
+                    <button class="btn-primary" id="saveTemplateBtn">Сохранить шаблон меню</button>
+                </div>
+                
+                <div class="export-code" id="exportCode" style="display: none;">
+                    // Код мод-меню будет здесь
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-toggle" id="menuToggle">≡</div>
+    <div class="mod-menu" id="modMenu">
+        <h3>Мод Меню</h3>
+        <div id="menuContent">
+            <p>Параметры не добавлены</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
